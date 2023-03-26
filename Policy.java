@@ -5,8 +5,8 @@ public class Policy {
     private String policyholderLastName;
     private int policyholderAge;
     private String policyholderSmokingStatus;
-    private float policyholderHeight;
-    private float policyholderWeight;
+    private double policyholderHeight;
+    private double policyholderWeight;
 
     public Policy() {
         policyNumber = 0;
@@ -19,7 +19,7 @@ public class Policy {
         policyholderWeight = 0;
     }
 
-    public Policy(int poliNum, String provName, String poliholdFirstName, String poliholdLastName, int poliholdAge, String poliholdSmokeStatus, float poliholdHeight, float poliholdWeight) {
+    public Policy(int poliNum, String provName, String poliholdFirstName, String poliholdLastName, int poliholdAge, String poliholdSmokeStatus, double poliholdHeight, double poliholdWeight) {
         policyNumber = poliNum;
         providerName = provName;
         policyholderFirstName = poliholdFirstName;
@@ -78,28 +78,28 @@ public class Policy {
         policyholderSmokingStatus = newPolicyholderSmokingStatus;
     }
 
-    public float getPolicyholderHeight() {
+    public double getPolicyholderHeight() {
         return policyholderHeight;
     }
 
-    public void setPolicyholderHeight(float newPolicyholderHeight) {
+    public void setPolicyholderHeight(double newPolicyholderHeight) {
         policyholderHeight = newPolicyholderHeight;
     }
 
-    public float getPolicyholderWeight() {
+    public double getPolicyholderWeight() {
         return policyholderWeight;
     }
 
-    public void setPolicyholderWeight(float newPolicyholderWeight) {
+    public void setPolicyholderWeight(double newPolicyholderWeight) {
         policyholderWeight = newPolicyholderWeight;
     }
 
-    public float calculateBMI() {
+    public double calculateBMI() {
         return (policyholderWeight * 703) / (policyholderHeight * policyholderHeight);
     }
 
-    public float calculatePolicyPrice() {
-        float additionalFee = 0;
+    public double calculatePolicyPrice() {
+        double additionalFee = 0;
 
         if (policyholderAge > 50) {
             additionalFee += 75;
