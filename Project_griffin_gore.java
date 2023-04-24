@@ -31,6 +31,9 @@ class Project_griffin_gore {
       }
       file.close();
       
+      int smokers = 0;
+      int nonSmokers = 0;
+      
       for (int i = 0; i < policies.size(); i++) {
         System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
         System.out.println("Provider Name: " + policies.get(i).getProviderName());
@@ -43,9 +46,14 @@ class Project_griffin_gore {
         System.out.printf("Policyholder's BMI: %.2f\n", policies.get(i).calculateBMI());
         System.out.printf("Policy Price: $%.2f\n\n", policies.get(i).calculatePolicyPrice());
         
-        
+        if (policies.get(i).getPolicyholderSmokingStatus().equals("smoker")) {
+         smokers++;
+        } else {
+         nonSmokers++;
+        }
       }
       
-      
+      System.out.println("The number of policies with a smoker is: " + smokers);
+      System.out.println("The number of policies with a non-smoker is: " + nonSmokers);
    }
 }
