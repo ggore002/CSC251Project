@@ -9,7 +9,7 @@ public class Policy {
     public Policy() {
         policyNumber = 0;
         providerName = "";
-        person;
+        person = new PolicyHolder();
     }
 
     /**
@@ -21,8 +21,17 @@ public class Policy {
     public Policy(int poliNum, String provName, PolicyHolder poliHolder) {
         policyNumber = poliNum;
         providerName = provName;
-        person = poliHolder;
+        person = new PolicyHolder(poliHolder);
     }
+    
+    public String toString() {
+      return String.format("Policy Number: " + policyNumber +
+        "\nProvider Name: " + providerName +
+        "\n" + person.toString() +
+        "\nPolicyholder's BMI: %.2f\n" +
+        "Policy Price: $%.2f\n", calculateBMI(), calculatePolicyPrice());
+      }
+
 
     /**
      * Gets the policy number for the policy.
@@ -59,6 +68,14 @@ public class Policy {
     public void setProviderName(String newProviderName) {
         providerName = newProviderName;
     }
+    
+    public PolicyHolder getPerson() {
+      return person;
+    }
+    
+    public void setPerson(PolicyHolder newPerson) {
+      person = newPerson;
+    }
 
     /**
      * Calculates the BMI for the policy holder.
@@ -66,7 +83,7 @@ public class Policy {
      * @return The BMI of the policy holder.
      */
     public double calculateBMI() {
-        return (policyholderWeight * 703) / (policyholderHeight * policyholderHeight);
+        return (person.getWeight() * 703) / (person.getHeight() * person.getHeight());
     }
 
     /**
@@ -77,11 +94,11 @@ public class Policy {
     public double calculatePolicyPrice() {
         double additionalFee = 0;
 
-        if (policyholderAge > 50) {
+        if (person.getAge() > 50) {
             additionalFee += 75;
         }
 
-        if (policyholderSmokingStatus.equals("smoker")) {
+        if (person.getSmokingStatus().equals("smoker")) {
             additionalFee += 100;
         }
 
