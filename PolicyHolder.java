@@ -24,6 +24,24 @@ public class PolicyHolder {
        weight = curWeight;
     }
     
+    public PolicyHolder(PolicyHolder org) {
+       firstName = org.firstName;
+       lastName = org.lastName;
+       age = org.age;
+       smokingStatus = org.smokingStatus;
+       height = org.height;
+       weight = org.weight;
+    }
+    
+    public String toString() {
+      return String.format("Policyholder's First Name: " + firstName +
+        "\nPolicyholder's Last Name: " + lastName +
+        "\nPolicyholder's Age: " + age +
+        "\nPolicyholder's Smoking Status: " + smokingStatus +
+        "\nPolicyholder's Height: %.1f inches\n" +
+        "Policyholder's Weight: %.1f pounds\n", height, weight);
+      }
+    
     /**
       * Gets the first name of the policy holder.
       * 
