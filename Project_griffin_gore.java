@@ -44,6 +44,7 @@ class Project_griffin_gore {
         }
       }
       
+      System.out.println("There were " + Policy.objCount() + " Policy objects created.");
       System.out.println("The number of policies with a smoker is: " + smokers);
       System.out.println("The number of policies with a non-smoker is: " + nonSmokers);
    }
