@@ -2,6 +2,7 @@ public class Policy {
     private int policyNumber;
     private String providerName;
     private PolicyHolder person;
+    private static int poliObjNum = 0;
 
     /**
      * No arg constructor
@@ -10,6 +11,7 @@ public class Policy {
         policyNumber = 0;
         providerName = "";
         person = new PolicyHolder();
+        poliObjNum++;
     }
 
     /**
@@ -22,6 +24,11 @@ public class Policy {
         policyNumber = poliNum;
         providerName = provName;
         person = new PolicyHolder(poliHolder);
+        poliObjNum++;
+    }
+    
+    public static int objCount() {
+      return poliObjNum;
     }
     
     public String toString() {
